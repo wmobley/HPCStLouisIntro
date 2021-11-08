@@ -76,6 +76,7 @@ while running:
     ################################# UPDATE WINDOW AND DISPLAY #################################
     canvas.fill((0, 0, 0))
     if index == -1:
+        #### start page and story
         index+=1
         start_sprite= pygame.transform.rotozoom(start_sprite, 0,.3)
         start_rect = start_sprite.get_rect()
@@ -113,6 +114,7 @@ while running:
 
 
     else:
+        ### Character intros
         index = (index + 1)
         canvas.blit(imagelist[character]['character'][index], (
 
@@ -121,7 +123,7 @@ while running:
         name = []
 
         if index ==len(imagelist[character]["character"])-1:
-
+            #Finish Character Intros
             job = font.render(imagelist[character]['title'], True, green, blue)
             # text surface object
             screen_text = font.render(imagelist[character]['name'], True, green, blue)
@@ -137,8 +139,6 @@ while running:
             canvas.blit(screen_text, textRect)
             canvas.blit(job, jobRect)
 
-
-
             index = 0
             window.blit(canvas, (0, 0))
             pygame.display.update()
@@ -152,11 +152,13 @@ while running:
             time.sleep(2)
             character += 1
         else:
+            #Character intro's sleep and update
             # index += 1
             window.blit(canvas, (0, 0))
             pygame.display.update()
             time.sleep(.3)
         if character ==3:
+            ##Mentors and Last Page
             canvas.fill((0, 0, 0))
             techno_sprite = pygame.transform.rotozoom(techno_sprite, 0, 1.5)
             techno_rect = techno_sprite.get_rect()
